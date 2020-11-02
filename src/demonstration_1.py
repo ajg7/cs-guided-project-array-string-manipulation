@@ -22,4 +22,19 @@ There is no index that satisfies the conditions in the problem statement.
 """
 def pivot_index(nums):
     # Your code here
+    sum_left = 0
+    sum_right = sum(nums)
+    for i, num in enumerate(nums):
+        sum_right -= num
+        if sum_left == sum_right:
+            return i
+        else:
+            sum_left += num
+    return -1
 
+    
+    
+print(pivot_index([11, 2, 2, 10, 3]))
+# 3
+# 1 + 7 + 3 = 11
+# 5 + 6 = 11
